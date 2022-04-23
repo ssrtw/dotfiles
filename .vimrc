@@ -6,7 +6,9 @@ set mouse=r
 set number
 set smarttab
 set tabstop=4
-set smartindent
+set shiftwidth=4
+set softtabstop=4
+"set smartindent
 autocmd FileType python setlocal expandtab sw=4 softtabstop=4
 set list listchars=tab:\¦\ |
 set autoindent                  " set auto-indenting on for programming"
@@ -45,7 +47,7 @@ set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_visibility="low"
-colorscheme molokai
+"colorscheme tomasr/molokai
 """"""""""""""""""""
 
 " airline setting

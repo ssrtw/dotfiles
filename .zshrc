@@ -12,3 +12,5 @@ for config (${HOME}/.config/zsh/*.zsh) source $config;
 
 export PATH="$PATH:${HOME}/.local/bin/:/usr/local/cross-compiler/bin"
 eval $(thefuck --alias fk)
+
+alias rehgfs='sudo vmhgfs-fuse .host:/ /mnt/hgfs/ -o allow_other -o uid=1000'
