@@ -1,15 +1,11 @@
-autoload -U +X bashcompinit && bashcompinit
-declare -A ZINIT
-ZINIT[HOME_DIR]="${HOME}/.config/zinit"
-ZINIT[ZCOMPDUMP_PATH]="${HOME}/.cache/zcompdump"
-ZINIT[COMPINIT_OPTS]="-C"
+# custom zsh config location
+ZSH_CUSTOM="$HOME/.config/zsh"
 
 # https://askubuntu.com/a/847305
 # paste without highlight
 zle_highlight+=(paste:none)
 
-source "${HOME}/.config/zinit/zinit.zsh"
-
+# load all zsh config
 for config (${HOME}/.config/zsh/*.zsh) source $config;
 
 export PATH="$PATH:${HOME}/.local/bin/:/usr/local/cross-compiler/bin"
@@ -20,3 +16,7 @@ alias ls="ls --color=auto"
 alias ll="ls -al"
 alias cat="bat"
 alias gdb="gdb -q"
+alias vim="nvim"
+alias python="python3"
+
+eval "$(starship init zsh)"

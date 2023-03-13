@@ -15,8 +15,10 @@ map('n', '<F12>', ':SymbolsOutline<CR>', opt)
 
 map('n', '<A-Up>', ':m-2<CR>', opt)
 map('n', '<A-Down>', ':m+1<CR>', opt)
--- map('v', '<A-Up>', ':m-2<CR>gv', opt)
--- map('v', '<A-Down>', ':m+1<CR>v', opt)
+map('i', '<A-Up>', '<Esc>:m-2<CR>a', opt)
+map('i', '<A-Down>', '<Esc>:m+1<CR>a', opt)
+map('v', '<A-Up>', ':m-2<CR>gv', opt)
+map('v', '<A-Down>', ':m+1<CR>v', opt)
 map('n', '<A-Left>', ':bp<CR>', opt)
 map('n', '<A-Right>', ':bn<CR>', opt)
 
@@ -31,14 +33,21 @@ map("n", "<C-l>", ":bn<CR>", opt)
 map("n", "<CA-w>", ":Bdelete<CR>", opt)
 
 -- terminal
--- map('n', '<C-`>', ':ToggleTerm direction=float<CR>', opt)
+map('n', '<C-`>', ':ToggleTerm direction=float<CR>', opt)
 
 -- 排版
-map('n', '<A-S-f>', 'gg=G', opt)
+map('n', '<A-S-f>', 'gg=G``', opt)
 
 -- 連續縮排
 map('v', '<', '<gv', opt)
 map('v', '>', '>gv', opt)
+
+map('n', '<Home>', '_', opt)
+map('i', '<Home>', '<Esc>I', opt)
+
+map('i', '<Home>', '<Esc>I', opt)
+map('t', '<A-t>', '<Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>', opt)
+map('n', '<A-t>', '<Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>', opt)
 
 local pluginKeys = {}
 
@@ -66,7 +75,18 @@ pluginKeys.maplsp = function(mapbuf)
     -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
     -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
     -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+    mapbuf('n', '<A-t>', function() lazygit:toggle() end)
 end
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({
+    cmd = "lazygit",
+    hidden = true,
+    direction = 'float',
+    float_opts = {
+        border = 'double'
+    }
+})
 
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)

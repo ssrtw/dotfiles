@@ -1,0 +1,13 @@
+[username]
+format = "[$user](fg:white bg:236)"
+disabled = false
+show_always = true
+[hostname]
+ssh_only = false
+format =  "[@$hostname](fg:white bg:236)[](fg:236 bg:45)"
+trim_at = ".companyname.com"
+disabled = false
+[directory]
+home_symbol="~"
+read_only=""
+format="[$path](fg:234 bg:45)[](fg:45)"
