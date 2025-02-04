@@ -1,0 +1,18 @@
+[username]
+disabled = false
+format = "[$user](fg:white bg:236)"
+show_always = true
+
+[hostname]
+disabled = false
+format = "[@$hostname](fg:white bg:236)[](fg:236 bg:158)"
+ssh_only = false
+
+[directory]
+format = "[$path](fg:black bg:158)[](fg:158)"
+home_symbol = "~"
+read_only = ""
+
+[character]
+success_symbol = '[:\)](green)' # The 'success_symbol' segment is being set to ':)' with the color 'green'
+error_symbol = '[:\(](red)' # The 'error_symbol' segment is being set to ':(' with the color 'red'

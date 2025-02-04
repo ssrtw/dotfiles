@@ -1,0 +1,5 @@
+export CDHISTBIND='\e[1;2B'
+export CDLBIND='\e[1;6B'
+export CDDOTBIND='\e[1;2C'
+export CDUPBIND='\e[1;2D'
+export CDLASTBIND='\e[1;2A'

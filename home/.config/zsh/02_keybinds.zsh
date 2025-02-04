@@ -9,10 +9,10 @@ bindkey '^[[H' beginning-of-line      # [Home] - Go to beginning of line
 bindkey '^?' backward-delete-char     # [Backspace] - Delete backward
 bindkey '^[[5~' up-line-or-history    # [PageUp] - Up a line of history
 bindkey '^[[6~' down-line-or-history  # [PageDown] - Down a line of history
-# bindkey '^[[Z' reverse-menu-complete  # [Shift-Tab] - move through the completion menu backwards
+bindkey '^[[Z' reverse-menu-complete  # [Shift-Tab] - move through the completion menu backwards
 bindkey '^r' history-incremental-search-backward  # [Ctrl-r] - Search backward incrementally for a string.
-bindkey '^H' backward-kill-word       # [Ctrl-Backspace] - Delete previous work
-
+# bindkey '^H' backward-kill-word       # [Ctrl-Backspace] - Delete previous work
+#
 autoload -z edit-command-line # [Ctrl + X, Ctrl + E] - Edit command in vim
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
@@ -28,3 +28,4 @@ bindkey -M vicmd 'j' history-substring-search-down
 autoload -U select-word-style
 select-word-style bash
 export WORDCHARS='.-'
+
