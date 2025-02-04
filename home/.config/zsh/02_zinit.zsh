@@ -28,8 +28,4 @@ zinit ice wait lucid \
 zinit ice lucid nocompile \
   ael-code/zsh-colored-man-pages
 
-zinit ice lucid wait multisrc'shell/{completion,key-bindings}.zsh' id-as'junegunn/fzf_completions' pick'/dev/null'
-zinit light junegunn/fzf
-
-zinit ice wait lucid
-zinit light Aloxaf/fzf-tab
+zinit wait lucid light-mode for id-as'auto' has'fzf' @Aloxaf/fzf-tab
