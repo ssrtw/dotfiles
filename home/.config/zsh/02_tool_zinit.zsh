@@ -9,7 +9,6 @@ autoload -Uz _zinit
 
 zinit snippet OMZL::history.zsh
 zinit wait lucid for \
-  OMZL::key-bindings.zsh \
   OMZP::docker-compose \
   OMZP::sudo
 

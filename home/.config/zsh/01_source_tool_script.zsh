@@ -1,30 +1,29 @@
-command_exists() { command -v "\$1" 2>&1 > /dev/null || return 0; }
-
-if command_exists mise; then
+if command -v mise 2>&1 > /dev/null; then
 	eval "$(mise activate zsh)"
 else
 	curl https://mise.run | sh
 	mise use --global lsd fd rg fzf duf yazi
 fi
 
-if command_exists cargo; then
+if command -v cargo 2>&1 > /dev/null; then
 	. "$HOME/.cargo/env"
 fi
 
-if command_exists go; then
+if command -v go 2>&1 > /dev/null; then
 	# golang env
 	export PATH="$PATH:/usr/local/go/bin:${HOME}/go/bin"
 fi
 
-# if command_exists fzf; then
-# 	eval "$(fzf --zsh)"
-# fi
+if command -v fzf 2>&1 > /dev/null; then
+	eval "$(fzf --zsh)"
+	bindkey '^R' fzf-history-widget  # [Ctrl-r] - Search backward incrementally for a string.
+fi
 
-if command_exists starship; then
+if command -v starship 2>&1 > /dev/null; then
 	eval "$(starship init zsh)"
 fi
 
-if command_exists pnpm; then
+if command -v pnpm 2>&1 > /dev/null; then
 	export PNPM_HOME="$HOME/.local/share/pnpm"
 	case ":$PATH:" in
 	*":$PNPM_HOME:"*) ;;
@@ -32,7 +31,7 @@ if command_exists pnpm; then
 	esac
 fi
 
-if command_exists yazi; then
+if command -v yazi 2>&1 > /dev/null; then
 	y() {
 		local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 		yazi "$@" --cwd-file="$tmp"
@@ -43,7 +42,7 @@ if command_exists yazi; then
 	}
 fi
 
-if command_exists lsd; then
+if command -v lsd 2>&1 > /dev/null; then
 	lsd_dir=`dirname $(which lsd)`
 	source "$lsd_dir/autocomplete/_lsd"
 fi
