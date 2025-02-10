@@ -7,8 +7,8 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit snippet OMZL::history.zsh
 zinit wait lucid for \
+  OMZL::history.zsh \
   OMZP::docker-compose \
   OMZP::sudo
 
